@@ -42,7 +42,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
         using (HttpClient httpClient = new HttpClient())
         {
             httpClient.BaseAddress = new Uri("https://localhost:7259/api/Assistant");
-            var content = new { message = message.Text, phone = "31991433288" };
+            var content = new { message = message.Text, phone = "" };
             var response = await httpClient.PostAsJsonAsync("https://localhost:7259/api/Assistant" + "/Telegram", content);
 
             await botClient.SendTextMessageAsync(
